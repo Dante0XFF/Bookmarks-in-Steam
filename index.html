@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Bookmarks in Steam</title>
+
+	<meta name="author" content="Dante0XFF">
+	<meta name=description content="Bookmarks in Steam Overlay/Browser">
+
+	<link rel="stylesheet" href="css/w3.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body class="w3-theme">
+
+	<!-- Navbar -->
+	<div class="w3-top">
+		<div class="w3-bar w3-theme-dark w3-card w3-left-align w3-large">
+			<a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-large" href="javascript:void(0);" onclick="navBarFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+			<a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-theme-final"><i class="fa fa-home"></i> Home</a>
+			<a id="anchor1" href="javascript:void(0);" target="_self" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><i class="fa fa-google"></i> Google</a>
+		</div>
+		<!-- Navbar on small screens -->
+		<div id="smallNavBar" class="w3-bar-block w3-theme-final w3-hide w3-hide-large w3-hide-medium w3-large">
+			<a id="anchor2" href="javascript:void(0);" target="_self" class="w3-bar-item w3-button w3-padding-large"><i class="fa fa-google"></i> Google</a>
+		</div>
+	</div>
+
+	<!-- First Grid -->
+	<div class="w3-row-padding w3-padding-64 w3-container">
+		<div class="w3-content">
+			<div class="w3-row">
+				<!-- Notes -->
+				<div class="w3-container w3-half w3-margin-bottom">
+					<form class="w3-container w3-theme-dark w3-card-4 w3-round">
+						<p>
+							<label>Notes</label>
+							<textarea id="notes" class="w3-input w3-border w3-border-final w3-round w3-theme-final" style="resize:vertical;" spellcheck="false" data-gramm="false" cols="30" rows="5" autofocus="" onchange="document.getElementById('note_status').innerHTML='Changed.'"></textarea>
+							<label>Save: Ctrl+S Status: <span id="note_status"></span> </label>
+						</p>
+						<button id="buttonsavenotes" class="w3-button w3-theme-final w3-round w3-same-size-button" style="">Save</button>
+						<p>
+							<label>Mode</label>
+							<select id="open_mode" class="w3-select w3-border w3-border-final w3-round w3-theme-final" name="option">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">Open the URL in a background tab (default)</option>
+								<option value="2">Open the URL in the same frame</option>
+								<option value="3">Open the URL in a new frame</option>
+							</select>
+						</p>
+						<p><label>URL</label>
+							<input id="url" class="w3-input w3-border w3-border-final w3-round w3-theme-final" name="first" type="url">
+						</p>
+						<button id="buttongoto" class="w3-button w3-theme-final w3-round w3-same-size-button w3-margin-bottom" style="">Go</button>
+					</form>
+				</div>
+				<!-- URLs -->
+				<div class="w3-container w3-half">
+					<form class="w3-container w3-margin-bottom w3-card-4 w3-theme-dark w3-round">
+						<p><label>First Favorite URL</label>
+							<input id="favoriteurl1" class="w3-input w3-border w3-border-final w3-round w3-theme-final" type="url">
+						</p>
+						<button id="buttongoto1" class="w3-button w3-theme-final w3-round w3-same-size-button" style="">Go</button>
+						<p><label>Second Favorite URL</label>
+							<input id="favoriteurl2" class="w3-input w3-border w3-border-final w3-round w3-theme-final" type="url">
+						</p>
+						<button id="buttongoto2" class="w3-button w3-theme-final w3-round w3-same-size-button" style="">Go</button>
+						<p><label>Third Favorite URL</label>
+							<input id="favoriteurl3" class="w3-input w3-border w3-border-final w3-round w3-theme-final" type="url">
+						</p>
+						<button id="buttongoto3" class="w3-button w3-theme-final w3-round w3-same-size-button" style="">Go</button>
+						<p><label>Fourth Favorite URL</label>
+							<input id="favoriteurl4" class="w3-input w3-border w3-border-final w3-round w3-theme-final" type="url">
+						</p>
+						<button id="buttongoto4" class="w3-button w3-theme-final w3-round w3-same-size-button" style="">Go</button>
+						<p><label>Fifth Favorite URL</label>
+							<input id="favoriteurl5" class="w3-input w3-border w3-border-final w3-round w3-theme-final" type="url">
+							<label>Save all: Ctrl+D Status: <span id="url_status"></span> </label>
+						</p>
+						<button id="buttongoto5" class="w3-button w3-theme-final w3-round w3-same-size-button" style="">Go</button>
+						<!-- Button for saving the changes -->
+						<button id="buttonsaveall" class="w3-button w3-theme-final w3-round w3-same-size-button" style="">Save</button>
+						<p><label>© Dante0XFF | 2022</label></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script>
+		// Used to toggle the menu on small screens when clicking on the menu button
+		function navBarFunction() {
+			var x = document.getElementById("smallNavBar");
+			if (x.className.indexOf("w3-show") === -1) {
+				x.className += " w3-show";
+			} else {
+				x.className = x.className.replace(" w3-show", "");
+			}
+		}
+	</script>
+	<script src="js/main.min.js"></script>
+
+</body>
+</html>
