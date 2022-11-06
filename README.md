@@ -14,6 +14,6 @@ Go to the Desktop app:
 Steam>Settings>Web Browser>Web Browser home page
 
 Copy and paste this link there:
-[]()
+[https://dante0xff.github.io/Bookmarks-in-Steam/](https://dante0xff.github.io/Bookmarks-in-Steam/)
 
 Save the changes, and enjoy!
